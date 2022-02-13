@@ -19,7 +19,10 @@ def Login(request):
 def saveSurvey(request):
     if request.method == 'POST':
         try:
-            data = json.loads(request.POST.get('survey'))
+            # data = json.loads(request.POST.get('survey'))    this will give csrf token error after deployment so do like below
+
+            data = json.loads(request.POST['survey'])
+
             # print(data,type(data))
             data_loc = os.path.join(MEDIA_ROOT, 'survey_data')
             data_loc=data_loc+'/'+'hair_fall_dataset.csv'
