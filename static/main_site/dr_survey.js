@@ -334,41 +334,25 @@ function SaveSurvey() {
     var mess = '';
     var ntfs_s = '';
 
-    try {
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                // alert(xhttp.responseText);
-                if (xhttp.responseText == 'Saved') {
-                    mess = "Data saved successfully!";
-                    ntfs_s = '<div class="each_ntfs sucess" id="N' + ntfs_id.toString() + '">\n' +
-                        '        <div class="each_ntfs_content">\n' +
-                        '            <div>\n' +
-                        '                ' + mess + '\n' +
-                        '            </div>\n' +
-                        '            <div>\n' +
-                        '                <button type="button" onclick="CloseNtfsBtn(' + ntfs_id.toString() + ')" class="ntfs_cls_btn">\n' +
-                        '                    <span aria-hidden="true">&times;</span>\n' +
-                        '                </button>\n' +
-                        '            </div>\n' +
-                        '        </div>\n' +
-                        '    </div>';
-                } else {
-                    mess = "Error in data, please re-visit your entries!";
-                    ntfs_s = '<div class="each_ntfs err" id="N' + ntfs_id.toString() + '">\n' +
-                        '        <div class="each_ntfs_content">\n' +
-                        '            <div>\n' +
-                        '                ' + mess + '\n' +
-                        '            </div>\n' +
-                        '            <div>\n' +
-                        '                <button type="button" onclick="CloseNtfsBtn(' + ntfs_id.toString() + ')" class="ntfs_cls_btn">\n' +
-                        '                    <span aria-hidden="true">&times;</span>\n' +
-                        '                </button>\n' +
-                        '            </div>\n' +
-                        '        </div>\n' +
-                        '    </div>';
-                }
-            } else if (this.status == 404 || this.status == 500 || this.status == 0) {
-                mess = "Error connecting to server, please try again later!";
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            // alert(xhttp.responseText);
+            if (xhttp.responseText == 'Saved') {
+                mess = "Data saved successfully!";
+                ntfs_s = '<div class="each_ntfs sucess" id="N' + ntfs_id.toString() + '">\n' +
+                    '        <div class="each_ntfs_content">\n' +
+                    '            <div>\n' +
+                    '                ' + mess + '\n' +
+                    '            </div>\n' +
+                    '            <div>\n' +
+                    '                <button type="button" onclick="CloseNtfsBtn(' + ntfs_id.toString() + ')" class="ntfs_cls_btn">\n' +
+                    '                    <span aria-hidden="true">&times;</span>\n' +
+                    '                </button>\n' +
+                    '            </div>\n' +
+                    '        </div>\n' +
+                    '    </div>';
+            } else {
+                mess = "Error in data, please re-visit your entries!";
                 ntfs_s = '<div class="each_ntfs err" id="N' + ntfs_id.toString() + '">\n' +
                     '        <div class="each_ntfs_content">\n' +
                     '            <div>\n' +
@@ -385,8 +369,28 @@ function SaveSurvey() {
             htmlObject.innerHTML = ntfs_s;
             ntfs_div.appendChild(htmlObject);
             ntfs_id++;
-        };
-    } catch (e) {
+        }
+        // else {
+        //     mess = "Error connecting to server, please try again later!";
+        //     ntfs_s = '<div class="each_ntfs err" id="N' + ntfs_id.toString() + '">\n' +
+        //         '        <div class="each_ntfs_content">\n' +
+        //         '            <div>\n' +
+        //         '                ' + mess + '\n' +
+        //         '            </div>\n' +
+        //         '            <div>\n' +
+        //         '                <button type="button" onclick="CloseNtfsBtn(' + ntfs_id.toString() + ')" class="ntfs_cls_btn">\n' +
+        //         '                    <span aria-hidden="true">&times;</span>\n' +
+        //         '                </button>\n' +
+        //         '            </div>\n' +
+        //         '        </div>\n' +
+        //         '    </div>';
+        //     htmlObject.innerHTML = ntfs_s;
+        //     ntfs_div.appendChild(htmlObject);
+        //     ntfs_id++;
+        // }
+
+    };
+    xhttp.onerror = function () {
         mess = "Error connecting to server, please try again later!";
         ntfs_s = '<div class="each_ntfs err" id="N' + ntfs_id.toString() + '">\n' +
             '        <div class="each_ntfs_content">\n' +
@@ -403,7 +407,8 @@ function SaveSurvey() {
         htmlObject.innerHTML = ntfs_s;
         ntfs_div.appendChild(htmlObject);
         ntfs_id++;
-    }
+    };
+
     xhttp.open("post", url, true);
     xhttp.setRequestHeader("X-CSRFToken", csrftoken);
     xhttp.send(Fdata);
