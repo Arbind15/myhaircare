@@ -173,7 +173,7 @@
     display: none;
     position: absolute;
     right: 1px;
-    top: -4px;
+    top: 1px;
 }
 
 .check_mark svg {
