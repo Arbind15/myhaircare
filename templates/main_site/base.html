@@ -1,0 +1,159 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    <script src="https://kit.fontawesome.com/9a2bd6cf12.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script type="text/javascript" src="{% static 'personal/javascripts.js' %}"></script>
+{#    <link rel="stylesheet" href="{% static 'personal/stylesheet.css' %}">#}
+    <link rel="stylesheet" href="{% static 'personal/test.css' %}">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://kit.fontawesome.com/ba33ab971e.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.12.0/additional-methods.js"></script>
+</head>
+<body class="body" onload="load('{{search_str}}')" >
+
+  <nav class="navbar navbar-expand-lg navbar-light navdiv fixed-top">
+      <p class="branding">
+        <a class="navbar-brand text-white" href="#">arbindblog.com
+          {% if user.is_authenticated %}
+                    <a href="{%url 'profile'%}" class="navbar-brand "> <img class="pro_pi" style="height: 30px; width: 30px; border-radius: 3px" src="{{user.blog.Profile_Picture.url}}"></a>
+          {%endif%}
+        </a>
+      </p>
+    
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon burger"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="form-inline my-2 my-lg-0" method="POST", enctype="multipart/form-data" role="search" action="{%url 'search_result'%}" >
+          {% csrf_token %}
+          <input class="form-control mr-sm-2 autocomplete srch_inpt" type="search" id="auot_com" required onclick="autocom()"name="srch_val" placeholder="Enter Keyword" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0 srch_bth" type="submit"><i class="fas fa-search"></i></button>
+        </form>
+        
+        <ul class="navbar-nav ml-auto ">
+          <li class="nav-item active">
+            <a class="nav-link nav_btn" id="home" href="{%url 'home'%}">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active dropdown" id="products_list">
+            <a class="nav-link dropdown-toggle nav_btn"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Products
+            </a>
+            <div class="dropdown-menu" id="products" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{%url 'downloads'%}">Downloads</a>
+              <a class="dropdown-item" href="{%url 'codesnippets'%}">Code snippets</a>
+              <!-- <div class="dropdown-divider"></div> -->
+              <a class="dropdown-item" href="{%url 'gallery'%}">Gallery</a>
+              <a class="dropdown-item" href="{%url 'notes'%}">Notes</a>
+            </div>
+          </li>
+
+          {% if user.is_authenticated %}
+          <li class="nav-item active">
+            <a class="nav-link nav_btn" id="posts" href="{%url 'post'%}">Posts</a>
+          </li>
+      
+          <li class="nav-item active">
+            <a class="nav-link nav_btn" id="profile" href="{%url 'profile'%}">Profile</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link nav_btn" id="n_post" style="width: 110px;" href="{%url 'create_post'%}">New Post</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link nav_btn" id="l_out" href="{%url 'logout'%}">Logout</a>
+          </li>
+          {%else%}
+          <li class="nav-item active">
+            <a class="nav-link nav_btn" id="login" href="{%url 'blog'%}">Login</a>
+          </li>
+          {%endif%}
+          <li class="nav-item active">
+            <a class="nav-link nav_btn" id="about" href="{%url 'about'%}">About</a>
+          </li>
+        </ul>
+        
+      </div>
+  </nav>
+
+  <main class="main_content">
+      {% block content %}
+
+{#      Main Content goes here from other page#}
+
+      {% endblock %}
+  </main>
+
+    <!-- Site footer -->
+    <!-- bootstrap class "navbar fixed-bottom" also work to stik to bottom -->
+  <footer class="footer">
+      
+      <footer class="site-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12 col-md-6">
+                <h6>About</h6>
+                <p class="text-justify">Hi, I’m Arbind. I’m a student living in Dharan, Nepal.
+                    I am a fan of web development, technology, and design. I’m also interested in music and education.
+                    </div>
+    
+              <div class="col-xs-6 col-md-3">
+                <h6>Categories</h6>
+                <ul class="footer-links">
+                  <li><a href="{% url 'home' %}">News</a></li>
+                  <li><a href="{% url 'notes' %}">Education</a></li>
+                  <li><a href="{% url 'downloads' %}">Applications</a></li>
+                  <li><a href="{% url 'post' %}">Forum</a></li>
+                </ul>
+              </div>
+    
+              <div class="col-xs-6 col-md-3">
+                <h6>Quick Links</h6>
+                <ul class="footer-links">
+                  <li><a href="{% url 'downloads' %}">Downloads</a></li>
+                  <li><a href="{% url 'notes' %}">Notes</a></li>
+                  <li><a href="{% url 'codesnippets' %}">Code Samples</a></li>
+                  <li><a href="{% url 'signup' %}">Signup</a></li>
+                </ul>
+              </div>
+            </div>
+            <hr>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-sm-5 col-xs-12">
+                <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by 
+            <a href="#">arbindblog.com</a>.
+                </p>
+              </div>
+    
+              <div class="col-md-4 col-sm-7 col-xs-12">
+                <ul class="social-icons">
+                  <li><a class="facebook" target="_blank" href="https://www.facebook.com/arbind.mehta.549"><i class="fa fa-facebook"></i></a></li>
+                  <li><a class="twitter" target="_blank" href="https://twitter.com/ArbindMehta11"><i class="fa fa-twitter"></i></a></li>
+                  <li><a class="instagram" target="_blank" href="https://www.instagram.com/mehtaarbind/"><i class="fab fa-instagram"></i></a></li>
+                  <li><a class="linkedin" target="_blank" href="https://www.linkedin.com/in/arbind-mehta-324661170/"><i class="fa fa-linkedin"></i></a></li>
+                  <li><a class="Email" target="_blank" href="mailto:mehtaarbind67@gmail.com"><i class="far fa-envelope"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+    </footer>
+  </footer>
+
+</body>
+</html>

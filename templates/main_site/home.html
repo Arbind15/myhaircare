@@ -1,0 +1,117 @@
+{%  extends 'personal/base.html'%}
+{% block content%}
+<div class="container-fluid hh">
+
+    <div class="row justify-content-between no-gutters">
+
+        <div class="col-12 col-md-3 col-sm-2 col-lg-3 col-xl-3 home_div1" >
+
+            <div class="utility_div">
+
+            </div>
+
+        </div>
+        <div class="col-12 col-md-6 col-sm-7 col-lg-6 col-xl-5 home_div2">
+            <div class="card-columns post_columns" style="column-count: 1!important;margin-top: 5px!important;">
+                {%for content in scrap%}
+                {%for content_list in content%}
+                <div class="card home_posts">
+                    <div class="card-header n_post_header">
+                        <div class="container-fluid">
+                            <div class="row justify-content-between no-gutters">
+                                <div class="col-12 col-md-9 col-sm-8 col-lg-9 col-xl-9 col-xs-8" >
+                                    <table class="post_table">
+                                        <tr>
+                                            <td rowspan="2" class="post_tb_td">
+                                                <img src="{{content_list.1}}" class="pro_pic home_pro_pic">
+                                                </button>
+                                            </td>
+                                            <td class="post_tb_td pst_lbl">
+                                                <label  class="name home_heading" style="
+                                               text-decoration: none;font-size: 20px;
+                                               margin: 0px;
+                                               border: none;
+                                               font-weight: 500;
+                                               color: #26272b">{{content_list.0}}</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="post_tb_td pst_lbl text-muted" style="font-size: 10px;margin: 0px">
+                                                    {{content_list.2}}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-12 col-md-3 col-sm-4 col-lg-3 col-xl-3 col-xs-4">
+                                    <a target="_blank" href="{{content_list.4}}" style="font-size: 10px" class="btnn">View</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body n_post_body">
+                        <div class="card p-3 post_home" style="background-color: #eae6e6;
+                         font-size: 15px;
+                         font-weight: 300;
+                         font-family: Roboto, Lucida Grande, Verdana, Arial, sans-serif;
+                         margin: 0px;">
+
+                            {% for labl in content_list.3 %}
+
+                                    {{ labl }}<br>
+
+                            {% endfor %}
+
+                        </div>
+                    </div>
+
+                    <div class="card-footer n_post_footer text-right">
+                        <span class="text-muted" style="font-size: 10px;">Source: <a href="{{ content_list.6 }}" class="sr_img"
+                                                                                    style="color:#26272b;" target="_blank">{{ content_list.5 }}</a></span>
+                    </div>
+                </div>
+                {%endfor%}
+                {%endfor%}
+            </div>
+        </div>
+        <div class="col-12 col-md-3 col-sm-3 col-lg-3 col-xl-3 home_div3">
+            <div class="card-columns actions_div_home" style="column-count: 1!important;">
+                {% if user.is_authenticated %}
+                <div class="card actions_card_home">
+                    <div class="card-header actions_head_home">
+                        Actions
+                    </div>
+                    <a href="{%url 'create_post'%}">
+                        <div class="card-footer actions_list">
+                            New Post
+                        </div>
+                    </a>
+                    <a href="{%url 'logout'%}">
+                        <div class="card-footer actions_list">
+                            Logout
+                        </div>
+                    </a>
+                </div>
+                {% endif %}
+                <div class="card actions_card_home">
+                    <div class="card-header actions_head_home">
+                        Weather info
+                    </div>
+                    <div class="card-footer weather" style="background-color: #818a91;font-size: 15px">
+                        {% if 'None' in weather_info %}
+                            Not available
+                        {% else %}
+                        {{ weather_info.0 }}&#8451;<br>
+                        {{ weather_info.1 }}<br>
+                        {{ weather_info.2 }}<br>
+                        {{ weather_info.3 }}<br>
+                        {{ weather_info.4 }}<br>
+                        {% endif%}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
