@@ -95,3 +95,19 @@
     height: 90px;
     width: 90px;
 }
+.all_head_err{
+    display: flex;
+    flex-direction: column;
+    align-content: center!important;
+    justify-content: center!important;
+}
+
+#err_div{
+    font-size: 10px!important;
+    font-weight: bold!important;
+    width: 100% !important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    padding: 5px!important;
+}

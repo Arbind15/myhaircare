@@ -1,0 +1,58 @@
+svg {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    /*background-color: #b02a37;*/
+}
+
+/*.abc8708b-aa26-4ace-8bd3-9cfbf0ea4abd,.f01f03c2-72c8-444c-9496-b9c28d6b59c0,.b6f7f3bb-69b8-496f-91aa-7b641eff15b3:hover{*/
+/*  cursor: pointer;*/
+/*}*/
+
+/*.abc8708b-aa26-4ace-8bd3-9cfbf0ea4abd,.afe23e01-6171-4eb0-b547-56d7b86659b5,.b6f7f3bb-69b8-496f-91aa-7b641eff15b3,.b6f7f3bb-69b8-496f-91aa-7b641eff15b3{*/
+/*  cursor: pointer;*/
+/*}*/
+
+/*.abc8708b-aa26-4ace-8bd3-9cfbf0ea4abd,.f7fc253d-0e16-46b6-8533-2f9b83f10e96,.b6f7f3bb-69b8-496f-91aa-7b641eff15b3,.b6f7f3bb-69b8-496f-91aa-7b641eff15b3,.b6f7f3bb-69b8-496f-91aa-7b641eff15b3{*/
+/*  cursor: pointer;*/
+/*}*/
+
+/*#con1, #con2, #con3 {*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*#sur1, #sur2, #sur3, #sur4 {*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*#log5:hover{*/
+/*    cursor: pointer;*/
+/*    stroke: green;*/
+/*    stroke-width: 20px;*/
+/*}*/
+
+/*#log1, #log2, #log3, #log4, #log5 {*/
+/*    cursor: pointer;*/
+/*}*/
+
+
+
+#con1:hover, #con2:hover, #con3:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#sur1:hover, #sur2:hover, #sur3:hover, #sur4:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#log1:hover, #log2:hover, #log3:hover, #log4:hover, #log5:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+/*#contrib_link:hover{*/
+/*    cursor: pointer;*/
+/*    opacity: 0.8;*/
+/*}*/

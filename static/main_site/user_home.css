@@ -1,0 +1,15 @@
+.user_home_tmp_div{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+
+}
+.cc1{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+     width: 100vw;
+    height: 100vh;
+}

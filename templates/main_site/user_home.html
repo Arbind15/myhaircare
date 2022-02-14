@@ -1,0 +1,38 @@
+{% load static %}
+{% csrf_token %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home | MyHair</title>
+    <link rel="icon" href="/media/site_page_stuffs/logo32.png" type="image/icon type">
+    {#    <link rel="shortcut icon" href="/media/site_page_stuffs/favicon.ico" type="image/x-icon">#}
+    <link rel="stylesheet" type="text/css" href="{% static 'main_site/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'main_site/user_home.css' %}">
+</head>
+<body>
+<div class="cc1">
+    <div class="user_home_tmp_div">
+        <div style="text-align: center">
+            <img width="150" height="200" src="/media/site_page_stuffs/anush.jpg" alt="Male">
+        </div>
+    <div>
+        @Anushka Pokherel, yaha k raakhana skinxa, think hai🙂🙂
+    </div>
+    <div>
+        <a href="{% url 'user_survey' %}">
+            Start Survey
+        </a>
+    </div>
+</div>
+</div>
+
+
+</body>
+<script type="text/javascript" src="{% static 'main_site/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'main_site/bootstrap.js' %}"></script>
+<script type="text/javascript" src="{% static 'main_site/user_home.js' %}"></script>
+</html>
