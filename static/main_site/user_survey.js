@@ -344,19 +344,23 @@ function SaveSurvey() {
             // alert(xhttp.responseText);
             var resp = JSON.parse(xhttp.responseText);
             if (resp['message'] == 'predicted') {
-                mess = 'There is ' + resp['percent'] + '% chance that you will face hair fall in near future!';
-                ntfs_s = '<div class="each_ntfs sucess" id="N' + ntfs_id.toString() + '">\n' +
-                    '        <div class="each_ntfs_content">\n' +
-                    '            <div>\n' +
-                    '                ' + mess + '\n' +
-                    '            </div>\n' +
-                    '            <div>\n' +
-                    '                <button type="button" onclick="CloseNtfsBtn(' + ntfs_id.toString() + ')" class="ntfs_cls_btn">\n' +
-                    '                    <span aria-hidden="true">&times;</span>\n' +
-                    '                </button>\n' +
-                    '            </div>\n' +
-                    '        </div>\n' +
-                    '    </div>';
+
+                window.location = window.location.protocol + "//" + window.location.host + "/userresult/" + resp['percent'].toString();
+
+                // mess = 'There is ' + resp['percent'] + '% chance that you will face hair fall in near future!';
+                // ntfs_s = '<div class="each_ntfs sucess" id="N' + ntfs_id.toString() + '">\n' +
+                //     '        <div class="each_ntfs_content">\n' +
+                //     '            <div>\n' +
+                //     '                ' + mess + '\n' +
+                //     '            </div>\n' +
+                //     '            <div>\n' +
+                //     '                <button type="button" onclick="CloseNtfsBtn(' + ntfs_id.toString() + ')" class="ntfs_cls_btn">\n' +
+                //     '                    <span aria-hidden="true">&times;</span>\n' +
+                //     '                </button>\n' +
+                //     '            </div>\n' +
+                //     '        </div>\n' +
+                //     '    </div>';
+
             } else {
                 mess = "Error in data, please re-visit your entries!";
                 ntfs_s = '<div class="each_ntfs err" id="N' + ntfs_id.toString() + '">\n' +

@@ -2,6 +2,7 @@ var sliderIndex = 0;
 var data = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '124', ''];
 const countryList = ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'The Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cambodia', 'Cameroon', 'Canada', 'Cape Verde', 'Central African Republic', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros', 'Congo, Republic of the', 'Congo, Democratic Republic of the', 'Costa Rica', "Cote d'Ivoire", 'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'East Timor (Timor-Leste)', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Ethiopia', 'Fiji', 'Finland', 'France', 'Gabon', 'The Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Korea, North', 'Korea, South', 'Kosovo', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macedonia', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius', 'Mexico', 'Micronesia, Federated States of', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique', 'Myanmar (Burma)', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania', 'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines', 'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Swaziland', 'Sweden', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', 'Togo', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States of America', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Vatican City (Holy See)', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'];
 var oneRoundFlag = 0;
+var reUse = 0;
 var ntfs_id = 0;
 var sel_elm = document.getElementById('region');
 for (i = 0; i < countryList.length; i++) {
@@ -281,6 +282,10 @@ function Next() {
         }
         if (sliderIndex >= 22) {
             document.getElementById('nxt_btn').setAttribute('disabled', 'true');
+            if (reUse == 1) {
+                document.getElementById('save_btn').removeAttribute('disabled');
+                document.getElementById('save_btn').setAttribute('class', 'btn1');
+            }
         }
         document.getElementById('pre_btn').removeAttribute('disabled');
         document.getElementById('index_lbl').innerText = (sliderIndex + 1).toString() + '/' + data.length.toString();
@@ -297,6 +302,10 @@ function Previous() {
     }
     if (sliderIndex >= 22) {
         document.getElementById('nxt_btn').setAttribute('disabled', 'true');
+        if (reUse == 1) {
+            document.getElementById('save_btn').removeAttribute('disabled');
+            document.getElementById('save_btn').setAttribute('class', 'btn1');
+        }
     }
     if (sliderIndex <= 0) {
         document.getElementById('pre_btn').setAttribute('disabled', 'true');
@@ -351,6 +360,19 @@ function SaveSurvey() {
                     '            </div>\n' +
                     '        </div>\n' +
                     '    </div>';
+
+                // data = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '124', ''];
+                document.getElementById('S' + sliderIndex.toString()).style.display = 'none';
+                sliderIndex = 0;
+                oneRoundFlag = 0;
+                reUse = 1;
+                document.getElementById('S' + sliderIndex.toString()).style.display = 'block';
+                document.getElementById('index_lbl').innerText = (sliderIndex + 1).toString() + '/' + data.length.toString();
+                document.getElementById('nxt_btn').removeAttribute('disabled')
+                document.getElementById('pre_btn').setAttribute('disabled', 'true');
+                document.getElementById('save_btn').setAttribute('disabled', 'true');
+                document.getElementById('save_btn').setAttribute('class', 'btn1 dis_btn');
+
             } else {
                 mess = "Error in data, please re-visit your entries!";
                 ntfs_s = '<div class="each_ntfs err" id="N' + ntfs_id.toString() + '">\n' +
