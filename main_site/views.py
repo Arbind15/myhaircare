@@ -44,6 +44,12 @@ def userHome(request):
     else:
         return HttpResponse('Forbidden')
 
+def drSurveyHome(request):
+    if request.method == 'GET':
+        return render(request, 'main_site/dr_survey_home.html', {})
+    else:
+        return HttpResponse('Forbidden')
+
 
 def userSurvey(request):
     if request.method == 'GET':

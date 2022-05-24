@@ -7,6 +7,12 @@
     --field-padding: 12px;
 }
 
+h6{
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color2);
+}
+
 .main_col {
     display: flex;
     flex-direction: column;

@@ -331,6 +331,9 @@ function getCookie(name) {
 }
 
 function SaveSurvey() {
+
+    document.getElementById('save_btn').setAttribute('disabled', 'true');
+
     var ntfs_div = document.getElementById('ntfs');
     var htmlObject = document.createElement('div');
     var Fdata = new FormData();

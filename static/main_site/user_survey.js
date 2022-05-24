@@ -225,6 +225,9 @@ function GetChemical(index) {
     data[sliderIndex] = parseInt(index).toString();
     if (data[sliderIndex] != '') {
         document.getElementById('nxt_btn').removeAttribute('disabled');
+        document.getElementById('nxt_btn').removeAttribute('disabled');
+        document.getElementById('save_btn').removeAttribute('disabled');
+        document.getElementById('save_btn').setAttribute('class', 'btn1');
     }
 }
 
