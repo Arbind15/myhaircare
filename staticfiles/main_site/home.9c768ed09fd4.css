@@ -1,0 +1,54 @@
+svg {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+#Start_Survey, #Info, #Status, #Setting, #Logout, #Contributions{
+    opacity: 0.9;
+}
+
+#Start_Survey:hover polygon, #Status:hover polygon, #Setting:hover polygon, #Logout:hover polygon, #Contributions:hover polygon{
+    cursor: pointer;
+    opacity: 0.9;
+    fill: #41464b!important;
+}
+
+#info_pol1:hover {
+    cursor: pointer;
+    opacity: 0.9;
+    fill: #41464b!important;
+}
+.main_info_div{
+    /*background-color: #0f5132;*/
+    height: 100%;
+    width: 100%;
+}
+.info_div11{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+.info_div22{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+.info_img_div{
+    text-align: center;
+}
+.info_img_div img{
+    height: 80px;
+    width: 80px;
+    border-radius: 40px;
+    margin-top: -80px;
+}
+.info_txt_div{
+    margin-top: 10px;
+    font-size: 10px;
+    color: white;
+    font-weight: bold;
+}

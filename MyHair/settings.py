@@ -125,3 +125,7 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 django_heroku.settings(locals())
+
+
+# if static files are not loading with debug=false
+# python manage.py collectstatic

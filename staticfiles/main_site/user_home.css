@@ -1,0 +1,64 @@
+:root {
+    --color1: #4ca3a6;
+    --color2: #653290;
+    --shadow1: rgba(101, 50, 144, 0.3);
+    --shadow2: rgba(101, 50, 144, 0.4);
+    --placeholder: rgba(76, 163, 166, 0.5);
+    --field-padding: 12px;
+}
+.user_home_tmp_div{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+
+}
+.cc1{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+     width: 100vw;
+    height: 100vh;
+}
+
+.btn1{
+    border: none;
+    border-radius: 10px;
+    padding: 6px 13px;
+    margin: 5px;
+    background-color: var(--color2);
+    font-weight: bold;
+    padding-bottom: 5px;
+    color: white;
+}
+
+.back_btn_11{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+.back_btn_22{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+.bac_svg{
+    height: 23px;
+    width: 23px;
+    fill: white;
+}
+.txt_back{
+    margin-right: 5px;
+    line-height: 17px;
+}
+.intro_survey_txt{
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color2);
+    width: 40%;
+    text-align: center;
+    margin: 15px auto;
+}

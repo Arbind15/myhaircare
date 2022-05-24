@@ -1,0 +1,32 @@
+svg {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+}
+.main_info_div{
+    height: 100%;
+    width: 100%;
+}
+.info_div11{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+.info_div22{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+.info_img_div{
+    text-align: center;
+}
+.info_txt_div{
+    text-align: center;
+    margin-top: -70px;
+    font-size: 10px;
+    color: black;
+    font-weight: bold;
+}

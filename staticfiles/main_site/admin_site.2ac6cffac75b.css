@@ -1,0 +1,41 @@
+.main_download_csv_btn{
+    border: none;
+    border-radius: 5px;
+    padding: 7px;
+    margin: 5px;
+    /*width: 110px;*/
+    /*height: 30px;*/
+    background-color: rgba(65, 70, 75, 0.93);
+}
+.main_download_csv_btn:hover{
+    background-color: #2e3034;
+}
+.download_csv_btn{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+.download_csv_btn22{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+.download_csv_btn22 div{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.download_csv_btn22 svg{
+    height: 20px;
+    width: 20px;
+    fill: white;
+}
+.download_csv_btn22 .text_div{
+    margin-left: 5px;
+    font-weight: bolder;
+    color: white;
+    font-size: 13px;
+}
