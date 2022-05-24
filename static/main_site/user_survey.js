@@ -277,6 +277,14 @@ function GetLabel(index) {
 }
 
 function Next() {
+
+    if(sliderIndex==7 && data[0]=='0'){
+        data[8]='0';
+        document.getElementById('S' + sliderIndex.toString()).style.display = 'none';
+        sliderIndex++;
+        document.getElementById('S' + sliderIndex.toString()).style.display = 'block';
+    }
+
     if (sliderIndex >= 21) {
         document.getElementById('nxt_btn').setAttribute('disabled', 'true');
     } else {
@@ -297,6 +305,14 @@ function Next() {
 }
 
 function Previous() {
+
+    if(sliderIndex==9 && data[0]=='0'){
+        data[8]='0';
+        document.getElementById('S' + sliderIndex.toString()).style.display = 'none';
+        sliderIndex--;
+        document.getElementById('S' + sliderIndex.toString()).style.display = 'block';
+    }
+
     document.getElementById('S' + sliderIndex.toString()).style.display = 'none';
     sliderIndex--;
     document.getElementById('S' + sliderIndex.toString()).style.display = 'block';
