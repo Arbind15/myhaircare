@@ -84,7 +84,7 @@ def predictMyFall(request):
         return HttpResponse('Forbidden')
 
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def drHome(request):
     if request.method == 'GET':
         return render(request, 'main_site/dr_survey.html', {})
@@ -142,7 +142,7 @@ def saveSurvey(request):
         return HttpResponse('Forbidden')
 
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def saveSurveyDB(request):
     if request.method == 'POST':
         try:
