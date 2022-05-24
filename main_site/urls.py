@@ -17,7 +17,7 @@ urlpatterns = [
     path('adminsite/', views.adminSite, name='admin_site'),
     path('getcsv/', views.getCSV, name='get_csv'),
     path('userresult/<per>', views.userResult, name='user_result'),
-    # path('test/', views.test, name='test'),
+    path('test/', views.test, name='test'),
 
     path('predictmyfall/', views.predictMyFall, name='predict_my_fall'),
 ]
