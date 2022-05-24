@@ -142,6 +142,14 @@ h6{
     margin: 10px;
 }
 
+@media (max-width: 580px) {
+  .image_each_gen img {
+    height: 80px;
+    width: 55px;
+    margin: 5px;
+}
+}
+
 .control_btns_div {
     display: flex;
     flex-direction: row;
@@ -202,6 +210,12 @@ h6{
     height: 150px;
     width: 350px;
 }
+@media (max-width: 440px) {
+   .age_coll img {
+    height: 100px;
+    width: 275px;
+}
+}
 
 .age_div {
     display: flex;
@@ -258,6 +272,13 @@ h6{
 .each_rel img {
     height: 200px;
     width: 230px;
+}
+
+@media (max-width: 580px) {
+    .each_rel img {
+        height: 70px;
+        width: 90px;
+}
 }
 
 .father_coll {
@@ -333,6 +354,13 @@ h6{
     width: 200px;
 }
 
+@media (max-width: 520px) {
+    .each_style img {
+        height: 70px;
+        width: 70px;
+}
+}
+
 
 .each_density {
     display: flex;
@@ -351,6 +379,13 @@ h6{
 .each_density img {
     height: 200px;
     width: 170px;
+}
+
+@media (max-width: 770px) {
+    .each_density img {
+        height: 70px;
+        width: 60px;
+}
 }
 
 .rate_img_div {
