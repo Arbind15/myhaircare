@@ -9,22 +9,61 @@
     <link rel="stylesheet" href="{% static 'main_site/admin_site.css' %}">
 </head>
 <body>
-<a href="{% url 'get_csv' %}" title="Download Survey Data as CSV">
-    <button class="main_download_csv_btn">
-        <div class="download_csv_btn">
-            <div class="download_csv_btn22">
-                <div class="svg_div">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 512c141.4 0 256-114.6 256-256s-114.6-256-256-256C114.6 0 0 114.6 0 256S114.6 512 256 512zM129.2 265.9C131.7 259.9 137.5 256 144 256h64V160c0-17.67 14.33-32 32-32h32c17.67 0 32 14.33 32 32v96h64c6.469 0 12.31 3.891 14.78 9.875c2.484 5.984 1.109 12.86-3.469 17.44l-112 112c-6.248 6.248-16.38 6.248-22.62 0l-112-112C128.1 278.7 126.7 271.9 129.2 265.9z"/></svg>
-                </div>
-                <div class="text_div">
-                   Survey Data
-                </div>
-            </div>
+<div class="notifications" id="ntfs">
+</div>
 
+<div class="bttn_coll_main">
+    <div class="bttn_coll_col">
+        <a href="{% url 'get_csv' %}" title="Download Survey Data as CSV">
+            <button class="main_download_csv_btn">
+                <div class="download_csv_btn">
+                    <div class="download_csv_btn22">
+                        <div class="svg_div">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 512c141.4 0 256-114.6 256-256s-114.6-256-256-256C114.6 0 0 114.6 0 256S114.6 512 256 512zM129.2 265.9C131.7 259.9 137.5 256 144 256h64V160c0-17.67 14.33-32 32-32h32c17.67 0 32 14.33 32 32v96h64c6.469 0 12.31 3.891 14.78 9.875c2.484 5.984 1.109 12.86-3.469 17.44l-112 112c-6.248 6.248-16.38 6.248-22.62 0l-112-112C128.1 278.7 126.7 271.9 129.2 265.9z"/></svg>
+                        </div>
+                        <div class="text_div">
+                           Survey Data
+                        </div>
+                    </div>
+                </div>
+            </button>
+        </a>
+        <div>
+            <input type="file" name="csv_upload" id="csv_upload" hidden>
+            <div id="upload_btn_div">
+                <button id="csv_upload_btn" onclick="openFileDialog()" class="main_download_csv_btn">
+                    <div class="download_csv_btn">
+                        <div class="download_csv_btn22">
+                            <div class="svg_div">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 0C114.6 0 0 114.6 0 256c0 141.4 114.6 256 256 256s256-114.6 256-256C512 114.6 397.4 0 256 0zM382.6 254.6c-12.5 12.5-32.75 12.5-45.25 0L288 205.3V384c0 17.69-14.33 32-32 32s-32-14.31-32-32V205.3L174.6 254.6c-12.5 12.5-32.75 12.5-45.25 0s-12.5-32.75 0-45.25l103.1-103.1C241.3 97.4 251.1 96 256 96c4.881 0 14.65 1.391 22.65 9.398l103.1 103.1C395.1 221.9 395.1 242.1 382.6 254.6z"/></svg>
+                            </div>
+                            <div class="text_div">
+                               Upload CSV
+                            </div>
+                        </div>
+                    </div>
+                </button>
+            </div>
         </div>
 
-    </button>
-</a>
+        <div id="train_btn">
+            <button class="main_download_csv_btn" onclick="Train()">
+                <div class="download_csv_btn">
+                    <div class="download_csv_btn22">
+                        <div class="svg_div">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M240.5 224H352C365.3 224 377.3 232.3 381.1 244.7C386.6 257.2 383.1 271.3 373.1 280.1L117.1 504.1C105.8 513.9 89.27 514.7 77.19 505.9C65.1 497.1 60.7 481.1 66.59 467.4L143.5 288H31.1C18.67 288 6.733 279.7 2.044 267.3C-2.645 254.8 .8944 240.7 10.93 231.9L266.9 7.918C278.2-1.92 294.7-2.669 306.8 6.114C318.9 14.9 323.3 30.87 317.4 44.61L240.5 224z"/></svg>
+                        </div>
+                        <div class="text_div">
+                           Train ANN
+                        </div>
+                    </div>
+                </div>
+            </button>
+        </div>
+    </div>
+</div>
+
+
 </body>
 <script type="text/javascript" src="{% static 'main_site/jquery.js' %}"></script>
 <script type="text/javascript" src="{% static 'main_site/bootstrap.js' %}"></script>

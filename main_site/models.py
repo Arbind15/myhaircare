@@ -32,3 +32,6 @@ class SurveyData(models.Model):
 
 class LRModel(models.Model):
     model = models.BinaryField()
+
+class ANN_Model(models.Model):
+    model = models.BinaryField()

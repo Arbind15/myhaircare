@@ -6,10 +6,13 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression, SGDRegressor,SGDClassifier
+from sklearn.linear_model import LogisticRegression, SGDRegressor, SGDClassifier
 from sklearn.metrics import confusion_matrix
-from .models import LRModel, SurveyData
+from .models import LRModel, SurveyData, ANN_Model
 from .predict import LR_predict_manual
+from keras.models import Sequential
+from keras.layers import Dense
+
 
 sns.set_style('dark')
 
@@ -53,3 +56,44 @@ def LR_train_onFly(X, Y):
         raw_model.model = mdl_data
         raw_model.save()
     return
+
+
+def ANN_Train_Manual():
+    dataset = pd.DataFrame.from_records(SurveyData.objects.all().values())
+    x = dataset.drop('Label', axis=1).drop('id', axis=1)
+    y = dataset['Label']
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
+    sc = StandardScaler()
+    x_train = sc.fit_transform(x_train)
+    x_test = sc.transform(x_test)
+    model = Sequential()
+    model.add(Dense(30, input_dim=22, activation="relu"))
+    model.add(Dense(30, activation="relu"))
+    model.add(Dense(35, activation="relu"))
+    model.add(Dense(40, activation="relu"))
+    model.add(Dense(45, activation="relu"))
+    model.add(Dense(50, activation="relu"))
+    model.add(Dense(55, activation="relu"))
+    model.add(Dense(60, activation="relu"))
+    model.add(Dense(60, activation="relu"))
+    model.add(Dense(60, activation="relu"))
+    model.add(Dense(30, activation="relu"))
+    model.add(Dense(25, activation="relu"))
+    model.add(Dense(20, activation="relu"))
+    model.add(Dense(15, activation="relu"))
+    model.add(Dense(10, activation="relu"))
+    model.add(Dense(5, activation="relu"))
+    model.add(Dense(1, activation="sigmoid"))
+    model.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"])
+    model.fit(x_train, y_train, epochs=500, batch_size=10)
+    _, accuracy = model.evaluate(x_test, y_test)
+    mdl_data = pickle.dumps(model)
+    tmp_mdl = ANN_Model.objects.all()
+    if len(tmp_mdl) <= 0:
+        ANN_Model.objects.create(model=mdl_data)
+    else:
+        tmp_mdl[0].model = mdl_data
+        tmp_mdl[0].save()
+    model.save('ann_model.h5')
+
+    return accuracy

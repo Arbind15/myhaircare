@@ -8,7 +8,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression,SGDRegressor,SGDClassifier
 from sklearn.metrics import confusion_matrix
-from .models import LRModel, SurveyData
+from .models import LRModel, SurveyData, ANN_Model
+from keras.models import load_model
 
 sns.set_style('dark')
 
@@ -54,3 +55,24 @@ def LR_predict_onfly(X_test):
         predictions = model.predict(X_test)
         print(predictions)
         return percent
+
+def ANN_Predict(x):
+    # mdls = ANN_Model.objects.all()
+    # if len(mdls) <= 0:
+    #     raise Exception
+    # else:
+    #     raw_model = mdls[0]
+    #     model = pickle.loads(raw_model.model)
+    #     # print(X_test)
+    #     # predictions = model.predict_proba(x)
+    #     # print(predictions)
+    #     # percent = round(predictions[0][1] * 100, 3)
+    #     print(model)
+    #     # print(predictions[0][1])
+    #     # for x in predictions:
+    #     #     print(x[1] * 100)
+    model=load_model('ann_model.h5')
+    predictions = model.predict(x)
+    predictions=predictions[0][0]
+    print(predictions)
+    return predictions

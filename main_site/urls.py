@@ -18,6 +18,8 @@ urlpatterns = [
     path('getcsv/', views.getCSV, name='get_csv'),
     path('userresult/<per>', views.userResult, name='user_result'),
     path('test/', views.test, name='test'),
+    path('trainann/', views.ANN_Train, name='train_ann'),
+    path('uploadcv/', views.uploadCSV, name='upload_csv'),
 
     path('predictmyfall/', views.predictMyFall, name='predict_my_fall'),
 ]
