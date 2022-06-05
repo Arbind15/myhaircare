@@ -1,0 +1,843 @@
+{% load static %}
+{% csrf_token %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Survey | MyHairCare</title>
+    <link rel="icon" href="/media/site_page_stuffs/logo32.png" type="image/icon type">
+{#    <link rel="shortcut icon" href="/media/site_page_stuffs/favicon.ico" type="image/x-icon">#}
+    <link rel="stylesheet" type="text/css" href="{% static 'main_site/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'main_site/onflylearning.css' %}">
+    <script type="text/javascript" src="{% static 'main_site/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'main_site/bootstrap.js' %}"></script>
+</head>
+<body>
+<div class="notifications" id="ntfs">
+{#    <div class="each_ntfs" id="N0">#}
+{#        <div class="each_ntfs_content">#}
+{#            <div>#}
+{#                Message#}
+{#            </div>#}
+{#            <div>#}
+{#                <button type="button" onclick="CloseNtfsBtn(0)" class="ntfs_cls_btn">#}
+{#                    <span aria-hidden="true">&times;</span>#}
+{#                </button>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+</div>
+<main>
+    <div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-1 col-md-2 col-lg-3">
+                </div>
+                <div class="col-sm-10 col-md-8 col-lg-6">
+                    <div class="main_row">
+                        <div class="main_col">
+                            <div class="main_content_div">
+                                <div class="container">
+                                    <div class="Slider">
+                                        <div id="S0">
+                                            <h6>Select your gender.</h6>
+                                            <div class="gender_coll">
+                                                <div class="each_gen" onclick="SelectGender(0)">
+                                                    <div class="check_mark">
+                                                        <svg width="20" height="20"
+                                                             fill="currentColor" class="bi bi-check-circle"
+                                                             viewBox="0 0 16 16">
+                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                                                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="image_each_gen">
+                                                        <img src="/media/site_page_stuffs/male.png" alt="Male">
+                                                    </div>
+                                                    <div class="label_each_gen">
+                                                        <label>Male</label>
+                                                    </div>
+                                                </div>
+                                                <div class="each_gen" onclick="SelectGender(1)">
+                                                    <div class="check_mark">
+                                                        <svg width="20" height="20"
+                                                             fill="currentColor" class="bi bi-check-circle"
+                                                             viewBox="0 0 16 16">
+                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                                                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="image_each_gen">
+                                                        <img src="/media/site_page_stuffs/female.png" alt="Female">
+                                                    </div>
+                                                    <div class="label_each_gen">
+                                                        <label>Female</label>
+                                                    </div>
+                                                </div>
+                                                <div class="each_gen" onclick="SelectGender(2)">
+                                                    <div class="check_mark">
+                                                        <svg width="20" height="20"
+                                                             fill="currentColor" class="bi bi-check-circle"
+                                                             viewBox="0 0 16 16">
+                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                                                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="image_each_gen">
+                                                        <img src="/media/site_page_stuffs/unknown_gender.png"
+                                                             alt="Unknown">
+                                                    </div>
+                                                    <div class="label_each_gen">
+                                                        <label>Unknown</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div id="S1">
+                                            <div class="age_coll">
+                                                <div>
+                                                    <h6>What was your age?</h6>
+                                                    <div>
+                                                        <img src="/media/site_page_stuffs/age.png"
+                                                             alt="Age">
+                                                    </div>
+                                                    <div class="age_in_div">
+                                                        <div class="age_div">
+                                                            <label id="age_err" class="error">Please enter valid
+                                                                age!</label>
+                                                            <div>
+                                                                <input placeholder="Enter age here(in Years)"
+                                                                       onkeyup="SaveAge()" type="text"
+                                                                       id="age">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="S2">
+                                            <h6>What was your relationship status?</h6>
+                                            <div class="marital_coll">
+                                                <div class="each_rel" onclick="SelectRelation(0)">
+                                                    <div class="check_mark">
+                                                        <svg width="20" height="20"
+                                                             fill="currentColor" class="bi bi-check-circle"
+                                                             viewBox="0 0 16 16">
+                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                                                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="image_each_gen">
+                                                        <img src="/media/site_page_stuffs/alone.png" alt="Single">
+                                                    </div>
+                                                    <div class="label_each_gen">
+                                                        <label>Single</label>
+                                                    </div>
+                                                </div>
+                                                <div class="each_rel" onclick="SelectRelation(1)">
+                                                    <div class="check_mark">
+                                                        <svg width="20" height="20"
+                                                             fill="currentColor" class="bi bi-check-circle"
+                                                             viewBox="0 0 16 16">
+                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                                                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="image_each_gen">
+                                                        <img src="/media/site_page_stuffs/couple.png"
+                                                             alt="In relationship">
+                                                    </div>
+                                                    <div class="label_each_gen">
+                                                        <label>In relation</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="S3">
+                                            <div class="father_coll">
+                                                <div>
+                                                    <h6>Did your father have hair fall problem?</h6>
+                                                    <div class="father_row1">
+                                                        <img src="/media/site_page_stuffs/father.png"
+                                                             alt="Father">
+                                                    </div>
+                                                    <div class="father_radio">
+                                                        <div>
+                                                            <input onchange="GetFather(1)" type="radio" id="yes1"
+                                                                   name="father" value="yes">
+                                                            <label for="yes1">Yes</label>
+                                                        </div>
+                                                        <div>
+                                                            <input onchange="GetFather(0)" type="radio" id="no1"
+                                                                   name="father" value="no">
+                                                            <label for="no1">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="S4">
+                                            <div class="father_coll">
+                                                <div>
+                                                    <h6>Did your mother have hair fall problem?</h6>
+                                                    <div class="father_row1">
+                                                        <img src="/media/site_page_stuffs/mother.png"
+                                                             alt="Mother">
+                                                    </div>
+                                                    <div class="father_radio">
+                                                        <div>
+                                                            <input onchange="GetMother(1)" type="radio" id="yes2"
+                                                                   name="mother" value="yes">
+                                                            <label for="yes2">Yes</label>
+                                                        </div>
+                                                        <div>
+                                                            <input onchange="GetMother(0)" type="radio" id="no2"
+                                                                   name="mother" value="no">
+                                                            <label for="no2">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="S5">
+                                            <div class="father_coll">
+                                                <div>
+                                                    <h6>Did your grandfather have hair fall problem?</h6>
+                                                    <div class="father_row1">
+                                                        <img src="/media/site_page_stuffs/father_g.png"
+                                                             alt="Grand Father">
+                                                    </div>
+                                                    <div class="father_radio">
+                                                        <div>
+                                                            <input onchange="GetGFather(1)" type="radio" id="yes3"
+                                                                   name="Gfather" value="yes">
+                                                            <label for="yes3">Yes</label>
+                                                        </div>
+                                                        <div>
+                                                            <input onchange="GetGFather(0)" type="radio" id="no3"
+                                                                   name="Gfather" value="no">
+                                                            <label for="no3">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="S6">
+                                            <div class="father_coll">
+                                                <div>
+                                                    <h6>Did your grandmother have hair fall problem?</h6>
+                                                    <div class="father_row1">
+                                                        <img src="/media/site_page_stuffs/mother_g.png"
+                                                             alt="Grand Mother">
+                                                    </div>
+                                                    <div class="father_radio">
+                                                        <div>
+                                                            <input onchange="GetGMother(1)" type="radio" id="yes4"
+                                                                   name="Gmother" value="yes">
+                                                            <label for="yes4">Yes</label>
+                                                        </div>
+                                                        <div>
+                                                            <input onchange="GetGMother(0)" type="radio" id="no4"
+                                                                   name="Gmother" value="no">
+                                                            <label for="no4">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="S7">
+                                            <div class="father_coll">
+                                                <div>
+                                                    <h6>Did your siblings have a hair fall problem?</h6>
+                                                    <div class="father_row1">
+                                                        <img src="/media/site_page_stuffs/siblings.png"
+                                                             alt="Siblings">
+                                                    </div>
+                                                    <div class="father_radio">
+                                                        <div>
+                                                            <input onchange="GetSiblings(1)" type="radio" id="yes5"
+                                                                   name="Siblings" value="yes">
+                                                            <label for="yes5">Yes</label>
+                                                        </div>
+                                                        <div>
+                                                            <input onchange="GetSiblings(0)" type="radio" id="no5"
+                                                                   name="Siblings" value="no">
+                                                            <label for="no5">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="S8">
+                                            <div class="father_coll">
+                                                <div>
+                                                    <h6>Were you pregnant?</h6>
+                                                    <div class="father_row1">
+                                                        <img src="/media/site_page_stuffs/pregenent.png"
+                                                             alt="Pregnant">
+                                                    </div>
+                                                    <div class="father_radio">
+                                                        <div>
+                                                            <input onchange="GetPregnant(1)" type="radio" id="yes6"
+                                                                   name="Pregnant" value="yes">
+                                                            <label for="yes6">Yes</label>
+                                                        </div>
+                                                        <div>
+                                                            <input onchange="GetPregnant(0)" type="radio" id="no6"
+                                                                   name="Pregnant" value="no">
+                                                            <label for="no6">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="S9">
+                                            <div class="father_coll">
+                                                <div>
+                                                    <h6>Had you frequently expose to radiation?</h6>
+                                                    <div class="father_row1">
+                                                        <img src="/media/site_page_stuffs/radiation.png"
+                                                             alt="Radiation">
+                                                    </div>
+                                                    <div class="father_radio">
+                                                        <div>
+                                                            <input onchange="GetRadiation(1)" type="radio" id="yes7"
+                                                                   name="Radiation" value="yes">
+                                                            <label for="yes7">Yes</label>
+                                                        </div>
+                                                        <div>
+                                                            <input onchange="GetRadiation(0)" type="radio" id="no7"
+                                                                   name="Radiation" value="no">
+                                                            <label for="no7">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="S10">
+                                            <h6>What was your hair line pattern?</h6>
+                                            <div class="hairline_coll">
+                                                <div class="each_hairline" onclick="SelectHairLine(0)">
+                                                    <div class="check_mark">
+                                                        <svg width="20" height="20"
+                                                             fill="currentColor" class="bi bi-check-circle"
+                                                             viewBox="0 0 16 16">
+                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                                                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="image_each_gen">
+                                                        <img src="/media/site_page_stuffs/hm1.png" alt="hm1">
+                                                    </div>
+                                                </div>
+                                                <div class="each_hairline" onclick="SelectHairLine(1)">
+                                                    <div class="check_mark">
+                                                        <svg width="20" height="20"
+                                                             fill="currentColor" class="bi bi-check-circle"
+                                                             viewBox="0 0 16 16">
+                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                                                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="image_each_gen">
+                                                        <img src="/media/site_page_stuffs/hm2.png"
+                                                             alt="hm2">
+                                                    </div>
+                                                </div>
+                                                <div class="each_hairline" onclick="SelectHairLine(2)">
+                                                    <div class="check_mark">
+                                                        <svg width="20" height="20"
+                                                             fill="currentColor" class="bi bi-check-circle"
+                                                             viewBox="0 0 16 16">
+                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                                                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="image_each_gen">
+                                                        <img src="/media/site_page_stuffs/hm3.png"
+                                                             alt="hm3">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="hairline_coll">
+                                                <div class="each_hairline" onclick="SelectHairLine(3)">
+                                                    <div class="check_mark">
+                                                        <svg width="20" height="20"
+                                                             fill="currentColor" class="bi bi-check-circle"
+                                                             viewBox="0 0 16 16">
+                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                                                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="image_each_gen">
+                                                        <img src="/media/site_page_stuffs/hm4.png" alt="hm4">
+                                                    </div>
+                                                </div>
+                                                <div class="each_hairline" onclick="SelectHairLine(4)">
+                                                    <div class="check_mark">
+                                                        <svg width="20" height="20"
+                                                             fill="currentColor" class="bi bi-check-circle"
+                                                             viewBox="0 0 16 16">
+                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                                                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="image_each_gen">
+                                                        <img src="/media/site_page_stuffs/hm5.png"
+                                                             alt="hm5">
+                                                    </div>
+                                                </div>
+                                                <div class="each_hairline" onclick="SelectHairLine(5)">
+                                                    <div class="check_mark">
+                                                        <svg width="20" height="20"
+                                                             fill="currentColor" class="bi bi-check-circle"
+                                                             viewBox="0 0 16 16">
+                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                                                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="image_each_gen">
+                                                        <img src="/media/site_page_stuffs/hm6.png"
+                                                             alt="hm6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="S11">
+                                            <h6>How was your hairstyle?</h6>
+                                            <div class="marital_coll">
+                                                <div class="each_style" onclick="SelectStyle(0)">
+                                                    <div class="check_mark">
+                                                        <svg width="20" height="20"
+                                                             fill="currentColor" class="bi bi-check-circle"
+                                                             viewBox="0 0 16 16">
+                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                                                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="image_each_gen">
+                                                        <img src="/media/site_page_stuffs/losseM.png" alt="Loose">
+                                                    </div>
+                                                    <div class="label_each_gen">
+                                                        <label>Loose</label>
+                                                    </div>
+                                                </div>
+                                                <div class="each_style" onclick="SelectStyle(1)">
+                                                    <div class="check_mark">
+                                                        <svg width="20" height="20"
+                                                             fill="currentColor" class="bi bi-check-circle"
+                                                             viewBox="0 0 16 16">
+                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                                                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="image_each_gen">
+                                                        <img src="/media/site_page_stuffs/tightM.png"
+                                                             alt="Tight">
+                                                    </div>
+                                                    <div class="label_each_gen">
+                                                        <label>Tight</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="S12">
+                                            <h6>How was your hair density?</h6>
+                                            <div class="marital_coll">
+                                                <div class="each_density" onclick="SelectDensity(0)">
+                                                    <div class="check_mark">
+                                                        <svg width="20" height="20"
+                                                             fill="currentColor" class="bi bi-check-circle"
+                                                             viewBox="0 0 16 16">
+                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                                                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="image_each_gen">
+                                                        <img src="/media/site_page_stuffs/dense.png" alt="Dense">
+                                                    </div>
+                                                    <div class="label_each_gen">
+                                                        <label>Dense</label>
+                                                    </div>
+                                                </div>
+                                                <div class="each_density" onclick="SelectDensity(1)">
+                                                    <div class="check_mark">
+                                                        <svg width="20" height="20"
+                                                             fill="currentColor" class="bi bi-check-circle"
+                                                             viewBox="0 0 16 16">
+                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                                                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="image_each_gen">
+                                                        <img src="/media/site_page_stuffs/thin.png"
+                                                             alt="Thin">
+                                                    </div>
+                                                    <div class="label_each_gen">
+                                                        <label>Thin</label>
+                                                    </div>
+                                                </div>
+                                                <div class="each_density" onclick="SelectDensity(2)">
+                                                    <div class="check_mark">
+                                                        <svg width="20" height="20"
+                                                             fill="currentColor" class="bi bi-check-circle"
+                                                             viewBox="0 0 16 16">
+                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                                                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="image_each_gen">
+                                                        <img src="/media/site_page_stuffs/thinner.png"
+                                                             alt="Thinner">
+                                                    </div>
+                                                    <div class="label_each_gen">
+                                                        <label>Thinner</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="S13">
+                                            <div class="age_coll">
+                                                <div>
+                                                    <h6>What was the average number of hair fall per day?</h6>
+                                                    <div class="rate_img_div">
+                                                        <img src="/media/site_page_stuffs/HrateF.png"
+                                                             alt="Rate">
+                                                    </div>
+                                                    <div class="age_in_div">
+                                                        <div class="age_div">
+                                                            <label id="rate_err" class="error">Please enter valid
+                                                                number!</label>
+                                                            <div>
+                                                                <input placeholder="Enter number"
+                                                                       onkeyup="SaveHRate()" type="text"
+                                                                       id="Hrate">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="S14">
+                                            <div class="father_coll">
+                                                <div>
+                                                    <h6>Did you have scalp infection?</h6>
+                                                    <div class="father_row1">
+                                                        <img src="/media/site_page_stuffs/infection.png"
+                                                             alt="Scalp Infection">
+                                                    </div>
+                                                    <div class="father_radio">
+                                                        <div>
+                                                            <input onchange="GetInfection(1)" type="radio" id="yes8"
+                                                                   name="Infection" value="yes">
+                                                            <label for="yes8">Yes</label>
+                                                        </div>
+                                                        <div>
+                                                            <input onchange="GetInfection(0)" type="radio" id="no8"
+                                                                   name="Infection" value="no">
+                                                            <label for="no8">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="S15">
+                                            <div class="father_coll">
+                                                <div>
+                                                    <h6>Did your scalp itch or pain?</h6>
+                                                    <div class="father_row1">
+                                                        <img src="/media/site_page_stuffs/pain.png"
+                                                             alt="Itch/Pain">
+                                                    </div>
+                                                    <div class="father_radio">
+                                                        <div>
+                                                            <input onchange="GetItch(1)" type="radio" id="yes9"
+                                                                   name="itch" value="yes">
+                                                            <label for="yes9">Yes</label>
+                                                        </div>
+                                                        <div>
+                                                            <input onchange="GetItch(0)" type="radio" id="no9"
+                                                                   name="itch" value="no">
+                                                            <label for="no9">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="S16">
+                                            <div class="father_coll">
+                                                <div>
+                                                    <h6>What was your nutrition intake?</h6>
+                                                    <div class="father_row1">
+                                                        <img src="/media/site_page_stuffs/nutrition.png"
+                                                             alt="Nutrition">
+                                                    </div>
+                                                    <div class="father_radio">
+                                                        <div>
+                                                            <input onchange="GetNutrition(2)" type="radio" id="yes10"
+                                                                   name="Nutrition" value="yes">
+                                                            <label for="yes10">Good</label>
+                                                        </div>
+                                                        <div>
+                                                            <input onchange="GetNutrition(1)" type="radio" id="no10"
+                                                                   name="Nutrition" value="no">
+                                                            <label for="no10">Enough</label>
+                                                        </div>
+                                                        <div>
+                                                            <input onchange="GetNutrition(0)" type="radio" id="poor10"
+                                                                   name="Nutrition" value="no">
+                                                            <label for="poor10">Poor</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="S17">
+                                            <div class="father_coll">
+                                                <div>
+                                                    <h6>Did you suffer from weight loss?</h6>
+                                                    <div class="father_row1">
+                                                        <img src="/media/site_page_stuffs/weightL.png"
+                                                             alt="Weight Loss">
+                                                    </div>
+                                                    <div class="father_radio">
+                                                        <div>
+                                                            <input onchange="GetWeight(1)" type="radio" id="yes11"
+                                                                   name="Weight" value="yes">
+                                                            <label for="yes11">Yes</label>
+                                                        </div>
+                                                        <div>
+                                                            <input onchange="GetWeight(0)" type="radio" id="no11"
+                                                                   name="Weight" value="no">
+                                                            <label for="no11">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="S18">
+                                            <div class="father_coll">
+                                                <div>
+                                                    <h6>How was your sleeping pattern?</h6>
+                                                    <div class="father_row1">
+                                                        <img src="/media/site_page_stuffs/sleep.png"
+                                                             alt="Sleeping">
+                                                    </div>
+                                                    <div class="father_radio">
+                                                        <div>
+                                                            <input onchange="GetSleeping(2)" type="radio" id="yes12"
+                                                                   name="Sleeping" value="yes">
+                                                            <label for="yes12">Good</label>
+                                                        </div>
+                                                        <div>
+                                                            <input onchange="GetSleeping(1)" type="radio" id="no12"
+                                                                   name="Sleeping" value="no">
+                                                            <label for="no12">Enough</label>
+                                                        </div>
+                                                        <div>
+                                                            <input onchange="GetSleeping(0)" type="radio" id="poor12"
+                                                                   name="Sleeping" value="no">
+                                                            <label for="poor12">Poor</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="S19">
+                                            <div class="father_coll">
+                                                <div>
+                                                    <h6>Did you used to use any chemicals on hair like hair jel, dyes, etc.?</h6>
+                                                    <div class="father_row1">
+                                                        <img src="/media/site_page_stuffs/chem.png"
+                                                             alt="Chemical">
+                                                    </div>
+                                                    <div class="father_radio">
+                                                        <div>
+                                                            <input onchange="GetChemical(1)" type="radio" id="yes13"
+                                                                   name="Chemical" value="yes">
+                                                            <label for="yes13">Yes</label>
+                                                        </div>
+                                                        <div>
+                                                            <input onchange="GetChemical(0)" type="radio" id="no13"
+                                                                   name="Chemical" value="no">
+                                                            <label for="no13">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="S20">
+                                            <div class="father_coll">
+                                                <div>
+                                                    <h6>Did you have any of the following medical condition?</h6>
+                                                    <div class="father_row1">
+                                                        <img src="/media/site_page_stuffs/medi.png"
+                                                             alt="Medication">
+                                                    </div>
+                                                    <div class="father_radio">
+                                                        <div>
+                                                            <input class="Medication" onchange="GetMedication()"
+                                                                   type="checkbox"
+                                                                   id="thyroid" name="Medication"
+                                                                   value="1">
+                                                            <label for="thyroid">Thyroid</label>
+                                                        </div>
+                                                        <div>
+                                                            <input class="Medication" onchange="GetMedication()"
+                                                                   type="checkbox" id="Menopause" name="Medication"
+                                                                   value="2">
+                                                            <label for="Menopause">Menopause</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="father_radio">
+                                                        <div>
+                                                            <input class="Medication" class="Medication"
+                                                                   onchange="GetMedication()" type="checkbox"
+                                                                   id="Diabetes" name="Medication"
+                                                                   value="3">
+                                                            <label for="Diabetes">Diabetes</label>
+                                                        </div>
+                                                        <div>
+                                                            <input class="Medication" onchange="GetMedication()"
+                                                                   type="checkbox" id="Anemia" name="Medication"
+                                                                   value="4">
+                                                            <label for="Anemia">Anemia</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="father_radio">
+                                                        <div>
+                                                            <input class="Medication" onchange="GetMedication()"
+                                                                   type="checkbox" id="Alopecia" name="Medication"
+                                                                   value="5">
+                                                            <label for="Alopecia">Alopecia Areata</label>
+                                                        </div>
+                                                        <div>
+                                                            <input class="Medication" onchange="GetMedication()"
+                                                                   type="checkbox" id="STDs" name="Medication"
+                                                                   value="6">
+                                                            <label for="STDs">STDs</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="father_radio">
+                                                        <div>
+                                                            <input class="Medication" onchange="GetMedication()"
+                                                                   type="checkbox" id="Depression" name="Medication"
+                                                                   value="7">
+                                                            <label for="Depression">Depression</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="S21">
+                                            <div class="father_coll">
+                                                <div>
+                                                    <h6>Select your Region.</h6>
+                                                    <div class="father_row1">
+                                                        <img src="/media/site_page_stuffs/reg.png"
+                                                             alt="Region">
+                                                    </div>
+                                                    <div class="father_radio">
+                                                        <div>
+                                                            <select onchange="GetRegion()" name="region" id="region">
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div id="S22">
+                                            <div class="father_coll">
+                                                <div>
+                                                    <h6>Do you suffer from hair fall at present?</h6>
+                                                    <div class="father_row1">
+                                                        <img src="/media/site_page_stuffs/conc.png"
+                                                             alt="Label">
+                                                    </div>
+                                                    <div class="father_radio">
+                                                        <div>
+                                                            <input onchange="GetLabel(1)" type="radio" id="yes16"
+                                                                   name="Label" value="yes">
+                                                            <label for="yes16">Yes</label>
+                                                        </div>
+                                                        <div>
+                                                            <input onchange="GetLabel(0)" type="radio" id="no16"
+                                                                   name="Label" value="no">
+                                                            <label for="no16">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="control_btns_div">
+                                            <button class="control_btns" disabled id="pre_btn" onclick="Previous()">
+                                                <svg width="25" height="25" fill="currentColor"
+                                                     class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                          d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"></path>
+                                                </svg>
+                                            </button>
+                                            <label class="index_lbl" id="index_lbl">1/23</label>
+                                            <button class="control_btns" disabled id="nxt_btn" onclick="Next()">
+                                                <svg width="25" height="25" fill="currentColor"
+                                                     class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                          d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+
+                                        <div class="control_btns_div2">
+                                            <button class="btn1" onclick="tmp()" id="cancel_btns">
+                                                Cancel
+                                            </button>
+                                            <button class="btn1 dis_btn" onclick="SaveSurvey()" disabled id="save_btn">
+                                                Save
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-1 col-md-2 col-lg-3">
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+</body>
+<script type="text/javascript" src="{% static 'main_site/onflylearning.js' %}"></script>
+</html>

@@ -1,0 +1,562 @@
+:root {
+    --color1: #4ca3a6;
+    --color2: #653290;
+    --shadow1: rgba(101, 50, 144, 0.3);
+    --shadow2: rgba(101, 50, 144, 0.4);
+    --placeholder: rgba(76, 163, 166, 0.5);
+    --field-padding: 12px;
+}
+
+h6{
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color2);
+}
+
+.main_col {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.main_row {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+.main_content_div {
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 var(--shadow1), 0 3px 10px 0 var(--shadow2);
+    /*background-color: var(--color1);*/
+}
+
+.notifications {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    /*background-color: red;*/
+    margin: 20px;
+    z-index: 999;
+    padding: 10px 10px 5px;
+    border-radius: 20px;
+}
+
+.ntfs_cls_btn {
+    background: none;
+    border: none;
+    border-radius: 10px;
+    line-height: 100%;
+    padding-bottom: 3px;
+    font-weight: bold;
+    background-color: var(--placeholder);
+    color: var(--color2);
+    margin-left: 15px;
+}
+
+.each_ntfs {
+    margin-bottom: 6px;
+    /*background-color: red;*/
+    display: block;
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.err {
+    background-color: rgba(243, 0, 0, 0.45);
+}
+
+.sucess {
+    background-color: rgba(101, 50, 144, 0.7);
+}
+
+.each_ntfs_content {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+.btn1 {
+    border: none;
+    border-radius: 10px;
+    padding: 6px 13px;
+    margin: 5px;
+    background-color: var(--color2);
+    font-weight: bold;
+    padding-bottom: 7px;
+    color: white;
+}
+
+.dis_btn {
+    opacity: 0.5;
+}
+
+.gender_coll {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+.each_gen {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    margin: 5px;
+}
+
+.each_gen:hover {
+    border: 3px solid var(--color2);
+    border-radius: 10px;
+    opacity: 0.5;
+}
+
+.image_each_gen {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+.label_each_gen {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+.label_each_gen label {
+    font-weight: bold;
+}
+
+.image_each_gen img {
+    height: 200px;
+    width: 150px;
+    margin: 10px;
+}
+
+@media (max-width: 580px) {
+  .image_each_gen img {
+    height: 80px;
+    width: 55px;
+    margin: 5px;
+}
+}
+
+.control_btns_div {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.control_btns_div2 {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+.control_btns {
+    background: none;
+    border: none;
+}
+
+.index_lbl {
+    margin-top: auto;
+    margin-bottom: auto;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.selectedG {
+    border: 3px solid var(--color2);
+    border-radius: 10px;
+    opacity: 0.5;
+    position: relative;
+}
+
+.check_mark {
+    display: none;
+    position: absolute;
+    right: 1px;
+    top: 1px;
+}
+
+.check_mark svg {
+    color: #01a1a1;
+}
+
+.age_coll {
+
+}
+
+.age_in_div {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.age_coll img {
+    height: 150px;
+    width: 350px;
+}
+@media (max-width: 440px) {
+   .age_coll img {
+    height: 100px;
+    width: 275px;
+}
+}
+
+.age_div {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.error {
+    display: none;
+    color: #ff4d2f;
+}
+
+.age_div input {
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    border: 2px solid var(--color2);
+    padding-left: 10px;
+    font-size: 20px;
+    color: var(--color1);
+    padding-bottom: 5px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.age_div input::placeholder {
+    font-size: 15px;
+    color: var(--placeholder);
+}
+
+
+.marital_coll {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+.each_rel {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    margin: 5px;
+}
+
+.each_rel:hover {
+    border: 3px solid var(--color2);
+    border-radius: 10px;
+    opacity: 0.5;
+}
+
+.each_rel img {
+    height: 200px;
+    width: 230px;
+}
+
+@media (max-width: 580px) {
+    .each_rel img {
+        height: 70px;
+        width: 90px;
+}
+}
+
+.father_coll {
+    width: 300px;
+
+}
+
+.father_coll img {
+    height: 200px;
+    width: 200px;
+}
+
+.father_row1 {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+.father_radio {
+    display: flex;
+    flex-direction: row;
+    align-content: space-evenly;
+    justify-content: space-evenly;
+    margin: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--color2);
+}
+
+.hairline_coll {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+.each_hairline {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    margin: 5px;
+}
+
+.each_hairline:hover {
+    border: 3px solid var(--color2);
+    border-radius: 10px;
+    opacity: 0.5;
+}
+
+.each_hairline img {
+    height: 100px;
+    width: 100px;
+}
+
+.each_style {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    margin: 5px;
+}
+
+.each_style:hover {
+    border: 3px solid var(--color2);
+    border-radius: 10px;
+    opacity: 0.5;
+}
+
+.each_style img {
+    height: 200px;
+    width: 200px;
+}
+
+@media (max-width: 520px) {
+    .each_style img {
+        height: 70px;
+        width: 70px;
+}
+}
+
+
+.each_density {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    margin: 5px;
+}
+
+.each_density:hover {
+    border: 3px solid var(--color2);
+    border-radius: 10px;
+    opacity: 0.5;
+}
+
+.each_density img {
+    height: 200px;
+    width: 170px;
+}
+
+@media (max-width: 770px) {
+    .each_density img {
+        height: 70px;
+        width: 60px;
+}
+}
+
+.rate_img_div {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+#S0 {
+
+}
+
+#S1 {
+    display: none;
+}
+
+#S2 {
+    display: none;
+}
+
+#S3 {
+    display: none;
+}
+
+#S4 {
+    display: none;
+}
+
+#S5 {
+    display: none;
+}
+
+#S5 img {
+    height: 200px;
+    width: 130px;
+}
+
+#S6 {
+    display: none;
+}
+
+#S6 img {
+    height: 200px;
+    width: 110px;
+}
+
+#S7 {
+    display: none;
+}
+
+#S7 img {
+    height: 200px;
+    width: 280px;
+}
+
+#S8 {
+    display: none;
+}
+
+#S9 {
+    display: none;
+}
+
+#S10 {
+    display: none;
+}
+
+#S11 {
+    display: none;
+}
+
+#S12 {
+    display: none;
+}
+
+#S13 {
+    display: none;
+}
+
+#S13 img {
+    height: 200px;
+    width: 160px;
+}
+
+#S14 {
+    display: none;
+}
+
+#S14 img {
+    height: 200px;
+    width: 200px;
+}
+
+#S15 {
+    display: none;
+}
+
+#S15 img {
+    height: 200px;
+    width: 200px;
+}
+
+#S16 {
+    display: none;
+}
+
+#S16 img {
+    height: 170px;
+    width: 300px;
+}
+
+#S17 {
+    display: none;
+}
+
+#S17 img {
+    height: 200px;
+    width: 100px;
+}
+
+#S18 {
+    display: none;
+}
+
+#S18 img {
+    height: 180px;
+    width: 300px;
+}
+
+#S19 {
+    display: none;
+}
+
+#S19 img {
+    height: 200px;
+    width: 230px;
+}
+
+#S20 {
+    display: none;
+}
+
+#S20 img {
+    height: 150px;
+    width: 200px;
+}
+
+#S21 {
+    display: none;
+}
+
+#S21 img {
+    height: 200px;
+    width: 200px;
+}
+
+#S22 {
+    display: none;
+}
+
+#S22 img {
+    height: 200px;
+    width: 220px;
+}
+
+#nxt_btn {
+
+}
+
+#pre_btn {
+
+}
+

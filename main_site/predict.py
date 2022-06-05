@@ -6,10 +6,12 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression,SGDRegressor,SGDClassifier
+from sklearn.linear_model import LogisticRegression, SGDRegressor, SGDClassifier
 from sklearn.metrics import confusion_matrix
 from .models import LRModel, SurveyData, ANN_Model
 from keras.models import load_model
+from sklearn.preprocessing import StandardScaler
+from joblib import dump, load
 
 sns.set_style('dark')
 
@@ -37,6 +39,7 @@ def LR_predict_manual(X_test, Y_test):
         print('Accuracy of the binary classification = {:0.3f}'.format(accuracy))
         return
 
+
 def LR_predict_onfly(X_test):
     mdls = LRModel.objects.all()
     if len(mdls) <= 0:
@@ -47,7 +50,7 @@ def LR_predict_onfly(X_test):
         # print(X_test)
         predictions = model.predict_proba(X_test)
         print(predictions)
-        percent=round(predictions[0][1]*100,3)
+        percent = round(predictions[0][1] * 100, 3)
         print(model)
         # print(predictions[0][1])
         # for x in predictions:
@@ -55,6 +58,7 @@ def LR_predict_onfly(X_test):
         predictions = model.predict(X_test)
         print(predictions)
         return percent
+
 
 def ANN_Predict(x):
     # mdls = ANN_Model.objects.all()
@@ -71,8 +75,25 @@ def ANN_Predict(x):
     #     # print(predictions[0][1])
     #     # for x in predictions:
     #     #     print(x[1] * 100)
-    model=load_model('ann_model.h5')
-    predictions = model.predict(x)
-    predictions=predictions[0][0]
-    print(predictions)
-    return predictions
+    model = load_model('ann_model.h5')
+    sc1 = load('std_scaler.bin')
+    x = sc1.transform(x)
+    # predictions = model.predict(x)
+    # predictions=predictions[0][0]
+    # print(predictions)
+    print(x)
+    print(model)
+    pred = model.predict(x)
+    print(pred)
+    # print(model.predict_proba(x))
+    return round(pred[0][0] * 100, 3)
+
+
+def RF_Predict(x):
+    sc1 = load('std_scaler_rf.bin')
+    x = sc1.transform(x)
+    model=pickle.load(open('rf_model.pkl','rb'))
+    # print(model)
+    per=model.predict(x)
+    # print(per)
+    return round(per[0] * 100, 2)

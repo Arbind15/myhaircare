@@ -6,7 +6,7 @@
     /*width: 110px;*/
     /*height: 30px;*/
     background-color: rgba(65, 70, 75, 0.93);
-    width: 130px;
+    width: 215px;
 }
 .main_download_csv_btn:hover{
     background-color: #2e3034;
@@ -111,6 +111,7 @@
     flex-direction: row;
     align-content: center;
     justify-content: center;
+    height: 100vh;
 }
 .bttn_coll_col{
     display: flex;
@@ -132,4 +133,26 @@
 @keyframes spin {
     from { transform: scale(1) rotate(0deg);}
     to { transform: scale(1) rotate(360deg);}
+}
+
+#sel_algo{
+    margin: 5px;
+    /*height: 20px;*/
+}
+
+#sel_algo label, select{
+    background-color: rgba(65, 70, 75, 0.93);
+    color: white;
+    border-radius: 5px;
+     padding: 7px;
+    font-weight: bold;
+    font-size: 15px;
+}
+#sel_algo option{
+    background-color: rgba(65, 70, 75, 0.93);
+    color: white;
+     padding: 5px;
+    margin: 50px;
+    font-weight: bold;
+    font-size: 15px;
 }

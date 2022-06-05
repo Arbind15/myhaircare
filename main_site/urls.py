@@ -19,7 +19,11 @@ urlpatterns = [
     path('userresult/<per>', views.userResult, name='user_result'),
     path('test/', views.test, name='test'),
     path('trainann/', views.ANN_Train, name='train_ann'),
+    path('trainrf/', views.RF_Train, name='train_rf'),
+    path('changealgo/', views.ChangeAlgo, name='change_algo'),
     path('uploadcv/', views.uploadCSV, name='upload_csv'),
+    path('onflypredict/', views.onFlyPredict, name='on_fly_predict'),
+    path('onflysave/', views.onFlySave, name='on_fly_save'),
 
     path('predictmyfall/', views.predictMyFall, name='predict_my_fall'),
 ]

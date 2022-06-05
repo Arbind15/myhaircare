@@ -45,13 +45,15 @@
                             <div class="login_contents">
                                 {% if per <= 50.0 %}
                                     <div class="safe_txt">
-                                        There is <b>{{ per }}%</b> chance that you will suffer from hair loss in near
+                                        There is <b>low</b> chance that you will suffer from hair loss in near
+{#                                        There is <b>{{ per }}%</b> chance that you will suffer from hair loss in near#}
                                         future. Our system predicted that, You can chill for now.
                                     </div>
                                 {% endif %}
                                 {% if per > 50.0 %}
                                     <div class="dngr_txt">
-                                        There is <b>{{ per }}%</b> chance that you will suffer from hair loss in near
+                                        There is <b>high</b> chance that you will suffer from hair loss in near
+{#                                        There is <b>{{ per }}%</b> chance that you will suffer from hair loss in near#}
                                         future. We recommend you visit a dermatologist as soon as possible.
                                     </div>
                                 {% endif %}
